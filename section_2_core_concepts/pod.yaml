@@ -1,0 +1,16 @@
+# found the spec yaml from https://github.com/kubernetes-sigs/cluster-capacity/blob/master/pod-spec.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: my-pod
+    env: dev
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      env:
+        - name: MY_ENV
+          value: "true"
+  restartPolicy: "OnFailure"
