@@ -1,0 +1,25 @@
+# Output the yaml file for the Job with the image busybox which echos “Hello I am from job”
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: busybox-echo-job
+spec:
+  # run 10 times of the same job
+  # completions: 10
+  #
+  # run 10 job in parallel
+  parallelism: 10
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - echo
+        - I am from job
+        image: busybox
+        name: busybox-echo-job
+        resources: {}
+      restartPolicy: Never
+status: {}

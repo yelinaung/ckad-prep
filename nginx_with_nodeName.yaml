@@ -1,0 +1,16 @@
+# Create a Pod that will be deployed on this node with the label nodeName=nginxnode
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  name: nginx-with-node-name-nginx
+spec:
+  nodeSelector:
+    nodeName: nginx
+  containers:
+  - image: nginx
+    name: nginx-prod
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
